@@ -2,7 +2,7 @@
 # Python
 # ================================
 __pycache__/
-*.py[cod]
+*.py
 *.pyo
 *.pyd
 *.so
@@ -71,3 +71,4 @@ node_modules/
 # Docker (if added later)
 # ================================
 .dockerignore
+*.pyc
