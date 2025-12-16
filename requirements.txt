@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+python-dotenv
+requests
+pydantic
+pydantic-settings
+sentence-transformers
+faiss-cpu
+openai
+tiktoken
+python-multipart
+streamlit
