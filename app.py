@@ -9,7 +9,7 @@ import time
 load_dotenv()
 
 BACKEND_URL = os.getenv("BACKEND_URL", "http://localhost:8000")
-API_KEY = os.getenv("API_KEY", "")  # set this in your .env (x-api-key for backend)
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")  # set this in your .env (x-api-key for backend)
 
 st.set_page_config(page_title="Chill Panda", page_icon="🐼", layout="wide")
 
@@ -42,7 +42,7 @@ def call_backend(session_id, user_id, text, language):
     url = BACKEND_URL.rstrip("/") + "/api/v1/chat"
     headers = {
         "Content-Type": "application/json",
-        "x-api-key": API_KEY
+        "x-api-key": OPENAI_API_KEY
     }
     payload = {
         "session_id": session_id,
@@ -51,7 +51,7 @@ def call_backend(session_id, user_id, text, language):
         "language": language
     }
     try:
-        resp = requests.post(url, json=payload, headers=headers, timeout=15)
+        resp = requests.post(url, json=payload, headers=headers, timeout=60)
     except Exception as e:
         return {"error": f"Request failed: {e}"}
     return {"status_code": resp.status_code, "text": resp.text, "json": (resp.json() if resp.ok else None)}
@@ -70,6 +70,7 @@ if send and user_input.strip():
         st.error(debug_result["error"])
     else:
         code = debug_result["status_code"]
+        print(f'code: {code}')
         if code != 200:
             # Show details so you can debug easily
             st.session_state.messages.append({"role": "assistant", "text": "🐼 Chill Panda: Error communicating with backend."})

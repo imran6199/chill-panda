@@ -1,7 +1,7 @@
 import os
 from openai import OpenAI
 
-client = OpenAI(api_key=os.getenv("API_KEY"))
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 SYSTEM_PROMPT = """
 You are Chill Panda 🐼 — a calm, empathetic mental health companion.
