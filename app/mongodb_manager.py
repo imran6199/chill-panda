@@ -38,10 +38,8 @@ class MongoDBManager:
             self.sessions_collection.create_index([("user_id", 1)])
             self.sessions_collection.create_index([("last_activity", -1)])
             
-            print("Connected to MongoDB successfully")
             
         except ConnectionFailure as e:
-            print(f"Failed to connect to MongoDB: {e}")
             raise
     
     def save_message(self, session_id: str, user_id: str, role: str, content: str, metadata: Dict = None) -> str:
@@ -64,7 +62,6 @@ class MongoDBManager:
             return str(result.inserted_id)
             
         except Exception as e:
-            print(f"Error saving message: {e}")
             return ""
     
     def get_conversation_history(self, session_id: str, limit: int = 20) -> List[Dict]:
@@ -78,7 +75,6 @@ class MongoDBManager:
             return messages
             
         except Exception as e:
-            print(f"Error getting conversation history: {e}")
             return []
     
     def update_session_activity(self, session_id: str, user_id: str):
@@ -107,8 +103,7 @@ class MongoDBManager:
             )
             
         except Exception as e:
-            print(f"Error updating session: {e}")
-    
+            pass
     def get_user_sessions(self, user_id: str, limit: int = 10) -> List[Dict]:
         """Get all sessions for a user"""
         try:
@@ -120,7 +115,6 @@ class MongoDBManager:
             return sessions
             
         except Exception as e:
-            print(f"Error getting user sessions: {e}")
             return []
     
     def delete_session(self, session_id: str) -> bool:
@@ -135,7 +129,6 @@ class MongoDBManager:
             return True
             
         except Exception as e:
-            print(f"Error deleting session: {e}")
             return False
     
     def close(self):

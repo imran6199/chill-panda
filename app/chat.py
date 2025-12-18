@@ -1,5 +1,5 @@
 import os
-from typing import List, Dict, Any, Optional
+from typing import List, Dict
 from openai import OpenAI
 from langchain_openai import OpenAIEmbeddings
 from langchain_pinecone import PineconeVectorStore
@@ -45,7 +45,6 @@ class RAGChat:
             else:
                 return ""
         except Exception as e:
-            print(f"Error retrieving context: {e}")
             return ""
     
     def generate_response(self, user_message: str, conversation_history: List[Dict] = None) -> str:
@@ -83,7 +82,6 @@ class RAGChat:
             return response.choices[0].message.content.strip()
         
         except Exception as e:
-            print(f"Error generating response: {e}")
             # Fallback response
             return "I apologize, but I'm having trouble accessing my wisdom right now. Please try again, and remember to breathe deeply and stay calm. 🐼"
 

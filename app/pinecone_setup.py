@@ -22,7 +22,6 @@ def initialize_pinecone():
                 region="us-east-1"
             )
         )
-        print(f"Created Pinecone index: {index_name}")
     
     return pc.Index(index_name)
 

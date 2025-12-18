@@ -11,5 +11,3 @@ db.chat_history.createIndex({ user_id: 1 });
 db.user_sessions.createIndex({ session_id: 1 }, { unique: true });
 db.user_sessions.createIndex({ user_id: 1 });
 db.user_sessions.createIndex({ last_activity: -1 });
-
-print('✅ MongoDB initialized for Chill Panda');

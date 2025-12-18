@@ -50,16 +50,13 @@ class DocumentProcessor:
             index_name=os.getenv("PINECONE_INDEX_NAME")
         )
         
-        print(f"Stored {len(chunks)} chunks in Pinecone")
         return vectorstore
     
     def process_pdf(self, pdf_path: str):
         """Process PDF and store in Pinecone"""
-        print(f"Processing PDF: {pdf_path}")
         text = self.extract_text_from_pdf(pdf_path)
         chunks = self.chunk_document(text)
         self.embed_and_store(chunks)
-        print("PDF processing completed successfully!")
 
 # Run this once to process the PDF
 if __name__ == "__main__":
