@@ -1,15 +1,18 @@
 # ================================
-# Python
+# Python - GENERATED FILES
 # ================================
 __pycache__/
-*.py
+*.py[cod]
 *.pyo
 *.pyd
 *.so
-*.egg-info/
+.egg-info/
 .eggs/
 dist/
 build/
+.pytest_cache/
+.coverage
+htmlcov/
 
 # ================================
 # Virtual Environments
@@ -20,30 +23,27 @@ env/
 ENV/
 
 # ================================
-# Environment Variables
+# Environment Variables & Secrets
 # ================================
 .env
 .env.*
 *.env
-
-# ================================
-# Streamlit
-# ================================
 .streamlit/secrets.toml
 .streamlit/config.toml
 
 # ================================
-# FastAPI / Uvicorn
+# Logs
 # ================================
 *.log
 uvicorn.log
 
 # ================================
-# Databases
+# Databases (LOCAL/DEV ONLY)
 # ================================
 *.db
 *.sqlite
 *.sqlite3
+chillpanda.db
 
 # ================================
 # OS / Editor
@@ -56,19 +56,16 @@ Thumbs.db
 *.swo
 
 # ================================
-# Tests / Coverage
-# ================================
-.coverage
-htmlcov/
-.pytest_cache/
-
-# ================================
-# Node / Frontend (future proof)
+# Node / Frontend
 # ================================
 node_modules/
 
 # ================================
-# Docker (if added later)
+# Docker
 # ================================
 .dockerignore
-*.pyc
+
+# ================================
+# Pinecone / FAISS (LOCAL CACHE)
+# ================================
+data/faiss_index.bin

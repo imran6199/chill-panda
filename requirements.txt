@@ -10,3 +10,14 @@ openai
 tiktoken
 python-multipart
 streamlit
+pinecone-client
+pymongo
+pymongo[srv]
+langchain
+langchain-openai
+langchain-pinecone
+langchain-community
+pypdf2
+numpy
+python-multipart
+httpx
